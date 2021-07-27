@@ -18,7 +18,7 @@ resource "aws_s3_bucket" "site" {
 
   website {
     index_document = "index.html"
-    error_document = "index.html"
+    error_document = "404.html"
   }
 }
 
@@ -151,3 +151,12 @@ resource "cloudflare_record" "www" {
   ttl     = 1
   proxied = true
 }
+
+resource "cloudflare_page_rule" "https" {
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+  target  = "*.${var.site_domain}/*"
+  actions {
+    always_use_https = true
+  }
+}
+
