@@ -1,5 +1,4 @@
-## Learn Terraform Cloudflare Static Website
+# Terraform AWS S3 static website
+Terraform configuration for hosting a static website on AWS S3
 
-Learn how to use Terraform to set up a static website using AWS bucket for object storage and Cloudflare for DNS, SSL and CDN. Follow along with [this tutorial](https://learn.hashicorp.com/tutorials/terraform/cloudflare-static-website) on HashiCorp Learn.
-
-The [`acm-cloudfront`](https://github.com/hashicorp/learn-terraform-cloudflare-static-website/tree/acm-cloudfront) branch uses ACM for SSL certificate and Cloudfront for CDN. This configuration is more complex and works even if your S3 bucket name is already taken.
+This repository holds the harshicorp terraform code used to host the static website https://www.mybucket.me/ on AWS S3. The bucket functions as a web server and serves the contents of index.html for any requests to bucket-name/index.html, displaying a "Hello World" message, otherwise serves the 404.html page and displays a "page not found message".
